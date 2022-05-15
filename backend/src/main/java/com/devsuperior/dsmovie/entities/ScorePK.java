@@ -1,15 +1,13 @@
 package com.devsuperior.dsmovie.entities;
 
 import java.io.Serializable;
-import java.util.Objects;
 
 import javax.persistence.Embeddable;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
 @Embeddable
-public class ScorePK implements Serializable{
-	
+public class ScorePK implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@ManyToOne
@@ -21,7 +19,6 @@ public class ScorePK implements Serializable{
 	private User user;
 	
 	public ScorePK() {
-		
 	}
 
 	public Movie getMovie() {
@@ -39,23 +36,4 @@ public class ScorePK implements Serializable{
 	public void setUser(User user) {
 		this.user = user;
 	}
-
-	@Override
-	public int hashCode() {
-		return Objects.hash(movie, user);
-	}
-
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		ScorePK other = (ScorePK) obj;
-		return Objects.equals(movie, other.movie) && Objects.equals(user, other.user);
-	}
-
-	
 }
